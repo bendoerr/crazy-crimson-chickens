@@ -32,5 +32,11 @@ grails.project.dependency.resolution = {
               ":release:1.0.0.RC3") {
             export = false
         }
+
+// Spock is installed via app props
+//        grails.plugin.location.'spock' = "./plugins/spock-0.6-SNAPSHOT" // HACK: See: http://jira.grails.org/browse/GPSPOCK-5
+//        test(":spock:0.6-SNAPSHOT") {
+//            export = false
+//        }
     }
 }
