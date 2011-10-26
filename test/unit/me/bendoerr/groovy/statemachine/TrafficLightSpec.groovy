@@ -7,12 +7,12 @@ class TrafficLightSpec extends Specification {
 
   def "Traffic Light should have three states."() {
     setup:
+      StateMachine.globalMixin()
       trafficLight = new TrafficLight()
 
     expect:
       trafficLight.getStates() == ['stop', 'proceed', 'caution']
   }
-
 
 }
 
@@ -20,7 +20,7 @@ class TrafficLightSpec extends Specification {
 class TrafficLight {
   def name
 
-  static stateMachine = StateMachine.define {
+  static stateMachine = Machine.define {
     inital 'stop'
     event 'cycle' transistion {
       from 'stop' to 'proceed'
@@ -28,5 +28,4 @@ class TrafficLight {
       from 'caution' to 'stop'
     }
   }
-
 }
